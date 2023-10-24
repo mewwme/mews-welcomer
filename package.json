@@ -1,5 +1,5 @@
 {
-  "name": "discord-welcome-bot",
+  "name": "welgood",
   "version": "1.0.0",
   "description": "It is a discord bot using v14",
   "main": "index.js",
@@ -8,21 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/diwasatreya/Discord-Welcome-Bot.git"
+    "url": "git+https://github.com/lrmn7/welgood.git"
   },
   "keywords": [
     "discord-bot",
     "discord",
     "welcome-image"
   ],
-  "author": "diwasatreya",
+  "author": "lrmn7",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/diwasatreya/Discord-Welcome-Bot/issues"
+    "url": "https://github.com/lrmn7/welgood/issues"
   },
-  "homepage": "https://github.com/diwasatreya/Discord-Welcome-Bot#readme",
+  "homepage": "https://github.com/lrmn7/welgood#readme",
   "dependencies": {
-    "canvafy": "^7.0.4",
     "canvas": "^2.11.2",
     "canvas-constructor": "^4.1.0",
     "discord.js": "^14.11.0",
