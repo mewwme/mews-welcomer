@@ -1,7 +1,7 @@
 // Require the necessary discord.js classes
-const { Discord, MessageAttachment, Client, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Events, GatewayIntentBits } = require('discord.js');
 require('dotenv').config();
-
+const { ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
 const { Canvas, resolveImage } = require('canvas-constructor');
 const canvas = require('canvas');
 
@@ -21,10 +21,11 @@ client.once(Events.ClientReady, c => {
   
 
 client.on("guildMemberAdd", async member => {
-  const chx = "1091287764252753981";
+  let chx = "1091287764252753981";
   if (chx === null) {
-      return;
+    return;
   }
+
 
   // Daftar nama file gambar PNG yang Anda miliki
   const images = [
@@ -92,7 +93,7 @@ client.on("guildMemberAdd", async member => {
   let userPfp = await resolveImage(member.user.displayAvatarURL({
     extension: "jpg",
       size: 1024
-  }));
+    }))
   let namee = member.user.username;
   let image = new Canvas(994, 198)
   .printImage(img, 0, 0, 994, 198)
@@ -126,13 +127,14 @@ client.on("guildMemberAdd", async member => {
   }).catch(error => {
     console.error(error);
   });
-  
+});
 
   client.on("guildMemberRemove", async member => {
     const chx = "1091212076246110248"; // Ganti dengan ID channel yang ingin Anda gunakan.
     if (chx === null) {
-        return;
-    }
+      return;
+  }
+  
 
   // Daftar nama file gambar PNG yang Anda miliki
   const images = [
@@ -215,10 +217,10 @@ client.on("guildMemberAdd", async member => {
   client.channels.cache.get(chx).send({
       content: `See you soon, <@${member.user.id}>!`,
       files: [image]
-  });
+  })
 });
 
 
 
 // Log in to Discord with your client's token
-client.login(process.env.BOT_TOKEN)});
+client.login(process.env.BOT_TOKEN);
