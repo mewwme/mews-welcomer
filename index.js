@@ -104,14 +104,9 @@ client.on("guildMemberAdd", async member => {
   .toBuffer();
 
   client.channels.cache.get(chx).send({
-    content: `Haii, welcome <3 <@${member.id}>! 
-    We're excited to have you join our community! Before you begin, please follow these steps:
-  
-    ➣ **Read the Rules**: Familiarize yourself with our community guidelines and regulations here <#1088032924869349409> .
-    ➣ **Choose Your Role**: To access all server features, including exclusive channels and events, select your role in the <#1091200958337396737> .
-    ➣ **Say Hi**: Introduce yourself in the <#1088037928091009095> . We'd love to get to know you better!
-    
-    By following these steps, you'll have a smooth start in our community and can fully enjoy your time with us. 🚀`,
+    content: `Haii, welcome <a:madebytragic_anime:1167631515094626365> <@${member.id}>! 
+    Explore the server as much as you want! Please, no harassment, racism, or bullying. Other than that, welcome fellow user!
+    Don't forget to read the rules and take on your assigned role. Have fun! <a:madebytragic_heart:1167631616978460682>`,
     files: [image]
   }).then(() => {
     const developerbutton = new ButtonBuilder()
