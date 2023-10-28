@@ -1,11 +1,21 @@
 // Require the necessary discord.js classes
-const { Client, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Events, GatewayIntentBits, WebhookClient, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 require('dotenv').config();
-const { ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
 const { Canvas, resolveImage } = require('canvas-constructor');
 const canvas = require('canvas');
+const memberAddWebhook = new WebhookClient({
+  id: '1167657537718456381',
+  token: 'Qubg9ekEaOcewh0KMq0GcJCQmMz6XyWBOxjbUCZzPHvy6TxBB_aRZ0GbGZRlJ0PB9Xgu'
+});
+const memberRemoveWebhook = new WebhookClient({
+  id: '1167657690877657138',
+  token: 'BBLH0wttavTRvZzrkrRsGZDXWwQSKZ6zsIAefYHEl8sbmk9MXSfc0b-6TxchQsxybLZt'
+});
 
 
+
+
+require('dotenv').config();
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
@@ -26,7 +36,7 @@ client.on("guildMemberAdd", async member => {
     return;
   }
 
-
+  const greetings = ["Hello,", "Hallo,", "Welkom,", "Heyho,", "Welcome,", "Karibu", "Hola,", "Willkommen,", "Namaste,", "Punten,", "Bienvenue,", "Salam,"];
   // Daftar nama file gambar PNG yang Anda miliki
   const images = [
     "1a.png",
@@ -84,41 +94,33 @@ client.on("guildMemberAdd", async member => {
       "#9fc8e5",
   ];
 
+  const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
   const randomImageIndex = Math.floor(Math.random() * images.length);
   const selectedImage = images[randomImageIndex];
   const selectedColor = textColors[randomImageIndex];
+  
+
 
   const img = await canvas.loadImage(`./${selectedImage}`);
-
-  let userPfp = await resolveImage(member.user.displayAvatarURL({
+  const userPfp = await resolveImage(member.user.displayAvatarURL({
     extension: "jpg",
-      size: 1024
-    }))
-  let namee = member.user.username;
-  let image = new Canvas(994, 198)
-  .printImage(img, 0, 0, 994, 198)
-  .setColor(selectedColor)
-  .setTextFont('54px sans-serif')
-  .printWrappedText(namee, 252, 102)
-  .printCircularImage(userPfp, 146, 97, 67, 67)
-  .toBuffer();
+    size: 1024
+  }));
+  const namee = `${randomGreeting} ${member.user.username}`; // Gabungkan kata sambutan acak dengan nama pengguna
 
-  client.channels.cache.get(chx).send({
+  const image = new Canvas(994, 198)
+    .printImage(img, 0, 0, 994, 198)
+    .setColor(selectedColor)
+    .setTextFont('54px sans-serif')
+    .printWrappedText(namee, 252, 102)
+    .printCircularImage(userPfp, 146, 97, 67, 67)
+    .toBuffer();
+
+  memberAddWebhook.send({
     content: `Haii, welcome <@${member.id}>! <a:madebytragic_anime:1167631515094626365>
     Explore the server as much as you want! Please, no harassment, racism, or bullying. Other than that, welcome fellow user!
     Don't forget to read the rules and take on your assigned role. Have fun! <a:madebytragic_heart:1167631616978460682>`,
     files: [image]
-  }).then(() => {
-    const developerbutton = new ButtonBuilder()
-      .setLabel('INVITE MY BOTS')
-      .setURL('https://hello.lrmn.site/')
-      .setStyle(ButtonStyle.Link);
-  
-    const actionRow = new ActionRowBuilder().addComponents(developerbutton);
-  
-    client.channels.cache.get(chx).send({
-      components: [actionRow]
-    });
   }).catch(error => {
     console.error(error);
   });
@@ -130,7 +132,7 @@ client.on("guildMemberAdd", async member => {
       return;
   }
   
-
+  const greetings = ["Goodbye,", "Adiós,", "Au revoir,", "Bye,", "Adeus,", "Vaarwel,", "Farvel,", "Sayōnara,", "Jig Mantog,", "Keluar,", "Jol,", "Mantog,"];
   // Daftar nama file gambar PNG yang Anda miliki
   const images = [
     "1a.png",
@@ -188,32 +190,34 @@ client.on("guildMemberAdd", async member => {
       "#9fc8e5",
   ];
 
-  // Pilih secara acak satu nama file gambar dari daftar
+  // Pilih kata sambutan secara acak
+  const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+
+  // Pilih gambar dan warna teks secara acak
   const randomImageIndex = Math.floor(Math.random() * images.length);
   const selectedImage = images[randomImageIndex];
   const selectedColor = textColors[randomImageIndex];
-  
 
   const img = await canvas.loadImage(`./${selectedImage}`);
-
-  let userPfp = await resolveImage(member.user.displayAvatarURL({
-      extension: "jpg",
-      size: 1024
+  const userPfp = await resolveImage(member.user.displayAvatarURL({
+    extension: "jpg",
+    size: 1024
   }));
-  let namee = member.user.username;
-  let image = new Canvas(994, 198)
-  .printImage(img, 0, 0, 994, 198)
-  .setColor(selectedColor) // Menggunakan warna yang sesuai
-  .setTextFont('54px sans-serif')
-  .printWrappedText(namee, 252, 102)
-  .printCircularImage(userPfp, 146, 97, 67, 67)
-  .toBuffer();
+  const namee = `${randomGreeting} ${member.user.username}`; // Gabungkan kata sambutan acak dengan nama pengguna
 
-  client.channels.cache.get(chx).send({
+  const image = new Canvas(994, 198)
+    .printImage(img, 0, 0, 994, 198)
+    .setColor(selectedColor)
+    .setTextFont('54px sans-serif')
+    .printWrappedText(namee, 252, 102)
+    .printCircularImage(userPfp, 146, 97, 67, 67)
+    .toBuffer();
+
+    memberRemoveWebhook.send({
       content: `See you soon, <@${member.user.id}>!`,
       files: [image]
-  })
-});
+    });
+  });
 
 
 
