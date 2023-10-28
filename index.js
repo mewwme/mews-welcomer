@@ -110,8 +110,8 @@ client.on("guildMemberAdd", async member => {
     files: [image]
   }).then(() => {
     const developerbutton = new ButtonBuilder()
-      .setLabel('Oh!BOTLiST')
-      .setURL('https://ohbotlist.hop.sh/')
+      .setLabel('INVITE MY BOTS')
+      .setURL('https://hello.lrmn.site/')
       .setStyle(ButtonStyle.Link);
   
     const actionRow = new ActionRowBuilder().addComponents(developerbutton);
