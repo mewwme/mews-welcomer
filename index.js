@@ -104,7 +104,7 @@ client.on("guildMemberAdd", async member => {
   .toBuffer();
 
   client.channels.cache.get(chx).send({
-    content: `Haii, welcome <a:madebytragic_anime:1167631515094626365> <@${member.id}>! 
+    content: `Haii, welcome <@${member.id}>! <a:madebytragic_anime:1167631515094626365>
     Explore the server as much as you want! Please, no harassment, racism, or bullying. Other than that, welcome fellow user!
     Don't forget to read the rules and take on your assigned role. Have fun! <a:madebytragic_heart:1167631616978460682>`,
     files: [image]
