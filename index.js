@@ -106,7 +106,7 @@ client.on("guildMemberAdd", async member => {
     extension: "jpg",
     size: 1024
   }));
-  const namee = `${randomGreeting} ${member.user.username}`; // Gabungkan kata sambutan acak dengan nama pengguna
+  const namee = `${randomGreeting} ${member.user.username}`;
 
   const image = new Canvas(994, 198)
     .printImage(img, 0, 0, 994, 198)
@@ -117,9 +117,9 @@ client.on("guildMemberAdd", async member => {
     .toBuffer();
 
   memberAddWebhook.send({
-    content: `Haii, welcome <@${member.id}>! <a:madebytragic_anime:1167631515094626365>
+    content: `Haii, welcome <a:tragic5:1169269912989089872> <@${member.id}>! <a:tragic5:1169269912989089872>
     Explore the server as much as you want! Please, no harassment, racism, or bullying. Other than that, welcome fellow user!
-    Don't forget to read the rules and take on your assigned role. Have fun! <a:madebytragic_heart:1167631616978460682>`,
+    <a:tragic1:1169254852065513482> Don't forget to read the rules and take on your assigned role. Have fun!`,
     files: [image]
   }).catch(error => {
     console.error(error);
@@ -203,7 +203,7 @@ client.on("guildMemberAdd", async member => {
     extension: "jpg",
     size: 1024
   }));
-  const namee = `${randomGreeting} ${member.user.username}`; // Gabungkan kata sambutan acak dengan nama pengguna
+  const namee = `${randomGreeting} ${member.user.username}`;
 
   const image = new Canvas(994, 198)
     .printImage(img, 0, 0, 994, 198)
