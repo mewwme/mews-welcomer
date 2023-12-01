@@ -23,7 +23,7 @@ client.on('guildMemberAdd', async (member) => {
         return;
     }
 
-    const greetings = ["Hello,", "Hallo,", "Welkom,", "Heyho,", "Welcome,", "Karibu", "Hola,", "Willkommen,", "Namaste,", "Punten,", "Bienvenue,", "Salam,"];
+    const greetings = ["Hi,", "Hallo,", "Heyho,", "Hola,"];
     const images = [
         "https://cdn.is-a.fun/welgood/1.png",
         "https://cdn.is-a.fun/welgood/2.png",
@@ -112,9 +112,7 @@ client.on('guildMemberAdd', async (member) => {
         );
 
     channel.send({
-        content: `Haii, welcome <a:tragic5:1169269912989089872> <@${member.id}>! <a:tragic5:1169269912989089872>
-        Explore the server as much as you want! Please, no harassment, racism, or bullying. Other than that, welcome fellow user!
-        <a:tragic1:1169254852065513482> Don't forget to read the rules and take on your assigned role. Have fun!`,
+        content: `<a:tragic5:1169269912989089872> <@${member.id}> <a:tragic5:1169269912989089872>`,
         files: [image],
         components: [row1],
     }).catch(error => {
@@ -129,7 +127,7 @@ client.on('guildMemberRemove', async (member) => {
         return;
     }
 
-    const greetings = ["Goodbye,", "Adiós,", "Au revoir,", "Bye,", "Adeus,", "Vaarwel,", "Farvel,", "Sayōnara,", "Jig Mantog,", "Keluar,", "Jol,", "Mantog,"];
+    const greetings = ["Adiós,", "Bye,", "Sayōnara,"];
     const images = [
         "https://cdn.is-a.fun/welgood/1.png",
         "https://cdn.is-a.fun/welgood/2.png",
@@ -209,7 +207,7 @@ client.on('guildMemberRemove', async (member) => {
     const channel = await client.channels.fetch(channelId);
 
     channel.send({
-        content: `See you soon, <@${member.user.id}>!`,
+        content: `<@${member.user.id}>`,
         files: [image],
     }).catch(error => {
         console.error(error);
