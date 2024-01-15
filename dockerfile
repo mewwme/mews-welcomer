@@ -1,8 +1,8 @@
 # Menggunakan image node.js sebagai base image
-FROM node:18
+FROM node:latest
 
 # Membuat direktori kerja di dalam container
-WORKDIR /usr/src/app
+WORKDIR /usr/bot/mewwme-welcy
 
 # Mengkopi package.json dan package-lock.json ke direktori kerja di dalam container
 COPY package*.json ./
@@ -14,4 +14,4 @@ RUN npm install
 COPY . .
 
 # Menjalankan aplikasi saat container dijalankan
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
